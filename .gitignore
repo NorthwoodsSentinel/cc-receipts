@@ -1,6 +1,11 @@
+# Files git leaves untracked. NOR-381 (the Cliff factory tooling) added the
+# coverage report that `npm run test` writes; the other entries predate it.
 node_modules/
 *.log
 .DS_Store
 .env
 .env.local
 *.tmp
+
+# Coverage report written by `npm run test` (NOR-381, added with the dev tooling).
+coverage/

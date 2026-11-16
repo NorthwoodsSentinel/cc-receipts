@@ -1,0 +1,17 @@
+{
+  // The typecheck project (NOR-381, added with the dev tooling; the repo had
+  // no tsconfig). It covers the TypeScript tests and config. The three hooks
+  // are CommonJS JavaScript: they are linted and tested, not typechecked.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["test/**/*.ts", "vitest.config.mts"]
+}
