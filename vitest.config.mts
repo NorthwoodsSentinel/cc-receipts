@@ -73,10 +73,13 @@ export default defineConfig({
       provider: "v8",
       // `skipFull: false`: list every measured file, including one at 100%.
       reporter: [["text", { skipFull: false }], "json-summary"],
-      include: ["*.js", "**/*.ts", "scripts/**/*.mjs"],
+      // The whole tree over every JS and TS extension, so a new file anywhere
+      // is measured (and fails at 0) without anyone remembering to add it.
+      include: ["**/*.{js,mjs,cjs}", "**/*.{ts,mts,cts,tsx}"],
       exclude: [
         // Test files are not code under test.
-        "**/*.test.ts",
+        "**/*.test.*",
+        "**/*.spec.*",
         // Configuration, not code under test.
         "vitest.config.mts",
         "eslint.config.mjs",

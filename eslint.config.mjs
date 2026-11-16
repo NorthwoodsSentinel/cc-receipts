@@ -62,9 +62,9 @@ export default defineConfig([
     },
   },
   {
-    // The three hooks: CommonJS scripts run by Node, linted with the same
-    // JavaScript rules.
-    files: ["*.js"],
+    // Every JavaScript file in the tree, CommonJS ones first: the same
+    // JavaScript rules everywhere, so no .js/.mjs/.cjs file escapes lint.
+    files: ["**/*.js", "**/*.cjs"],
     extends: [js.configs.recommended],
     languageOptions: {
       ecmaVersion: 2022,
@@ -75,7 +75,7 @@ export default defineConfig([
     },
   },
   {
-    files: ["eslint.config.mjs", "scripts/**/*.mjs"],
+    files: ["**/*.mjs"],
     extends: [js.configs.recommended],
     languageOptions: {
       ecmaVersion: 2022,
