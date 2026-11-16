@@ -132,3 +132,12 @@ Built by [Rob Chuvala](https://northwoodssentinel.com) as part of the NorthWoods
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Development (NOR-381)
+
+The repo's rules are in `AGENTS.md` (`CLAUDE.md` points to it); where they came from is in `PROVENANCE.md`.
+
+- `npm ci` installs the dev tooling from `package-lock.json`.
+- `npm run format` formats; `npm run local:gate` is the pre-push gate: format check, lint, typecheck, the guard scripts' tests, and `test/hooks.test.ts`, which runs each hook as a child process with a fake `claude` on `PATH` (no model is called); then the sign-off check `local:dco`. The three hooks are excluded from coverage by exact path (see `AGENTS.md`).
+- `.github/workflows/main.yml` runs the same gate (minus `local:dco`) on pull requests; `.github/workflows/dco.yml` and `scripts/dco-check.mjs` check that every commit is signed off. Neither deploys.
+

@@ -1,0 +1,6 @@
+# Files `npm run format` and `npm run format:check` leave alone (NOR-381).
+# Prettier also skips everything in .gitignore.
+
+# Coverage report written by `npm run test`.
+coverage/
+
